@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Leap;
-using Leap.Unity;
+//using Leap.Unity;
 using TMPro;
 
 public class Gesture19DMapping2D : MonoBehaviour
@@ -106,23 +106,23 @@ public class Gesture19DMapping2D : MonoBehaviour
         float[] gestureVector = new float[21]; // 19-dimensional vector (3 joints per finger + abduction/adduction + wrist movement)
         int index = 0;
 
-        foreach (Finger finger in hand.Fingers)
+        foreach (Finger finger in hand.fingers)
         {
             // Convert Leap.Vector to Unity.Vector3 manually
             Vector3 proximalDirection = new Vector3(
-                finger.Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.x,
-                finger.Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.y,
-                finger.Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.z);
+                finger.bones[1].Direction.x,
+                finger.bones[1].Direction.y,
+                finger.bones[1].Direction.z);
 
             Vector3 intermediateDirection = new Vector3(
-                finger.Bone(Bone.BoneType.TYPE_INTERMEDIATE).Direction.x,
-                finger.Bone(Bone.BoneType.TYPE_INTERMEDIATE).Direction.y,
-                finger.Bone(Bone.BoneType.TYPE_INTERMEDIATE).Direction.z);
+                finger.bones[2].Direction.x,
+                finger.bones[2].Direction.y,
+                finger.bones[2].Direction.z);
 
             Vector3 distalDirection = new Vector3(
-                finger.Bone(Bone.BoneType.TYPE_DISTAL).Direction.x,
-                finger.Bone(Bone.BoneType.TYPE_DISTAL).Direction.y,
-                finger.Bone(Bone.BoneType.TYPE_DISTAL).Direction.z);
+                finger.bones[3].Direction.x,
+                finger.bones[3].Direction.y,
+                finger.bones[3].Direction.z);
 
             // Calculate relative angles between each pair of bones (proximal, intermediate, distal)
             gestureVector[index++] = Vector3.Angle(proximalDirection, intermediateDirection);  // Proximal to Intermediate
@@ -132,28 +132,28 @@ public class Gesture19DMapping2D : MonoBehaviour
 
         // Add finger abduction/adduction between fingers (index-middle, middle-ring, ring-pinky)
         gestureVector[index++] = Vector3.Angle(
-            new Vector3(hand.Fingers[1].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.x,
-                        hand.Fingers[1].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.y,
-                        hand.Fingers[1].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.z),
-            new Vector3(hand.Fingers[2].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.x,
-                        hand.Fingers[2].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.y,
-                        hand.Fingers[2].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.z));  // Index to Middle
+            new Vector3(hand.fingers[1].bones[1].Direction.x,
+                        hand.fingers[1].bones[1].Direction.y,
+                        hand.fingers[1].bones[1].Direction.z),
+            new Vector3(hand.fingers[2].bones[1].Direction.x,
+                        hand.fingers[2].bones[1].Direction.y,
+                        hand.fingers[2].bones[1].Direction.z));  // Index to Middle
 
         gestureVector[index++] = Vector3.Angle(
-            new Vector3(hand.Fingers[2].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.x,
-                        hand.Fingers[2].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.y,
-                        hand.Fingers[2].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.z),
-            new Vector3(hand.Fingers[3].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.x,
-                        hand.Fingers[3].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.y,
-                        hand.Fingers[3].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.z));  // Middle to Ring
+            new Vector3(hand.fingers[2].bones[1].Direction.x,
+                        hand.fingers[2].bones[1].Direction.y,
+                        hand.fingers[2].bones[1].Direction.z),
+            new Vector3(hand.fingers[3].bones[1].Direction.x,
+                        hand.fingers[3].bones[1].Direction.y,
+                        hand.fingers[3].bones[1].Direction.z));  // Middle to Ring
 
         gestureVector[index++] = Vector3.Angle(
-            new Vector3(hand.Fingers[3].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.x,
-                        hand.Fingers[3].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.y,
-                        hand.Fingers[3].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.z),
-            new Vector3(hand.Fingers[4].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.x,
-                        hand.Fingers[4].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.y,
-                        hand.Fingers[4].Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.z));  // Ring to Pinky
+            new Vector3(hand.fingers[3].bones[1].Direction.x,
+                        hand.fingers[3].bones[1].Direction.y,
+                        hand.fingers[3].bones[1].Direction.z),
+            new Vector3(hand.fingers[4].bones[1].Direction.x,
+                        hand.fingers[4].bones[1].Direction.y,
+                        hand.fingers[4].bones[1].Direction.z));  // Ring to Pinky
 
         // Include wrist movements if enabled
         if (includeWristMovements)

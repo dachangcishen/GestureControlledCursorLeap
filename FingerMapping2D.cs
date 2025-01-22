@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Leap;
-using Leap.Unity;
+//using Leap.Unity;
 
 public class FingerMapping2D : MonoBehaviour
 {
@@ -77,7 +77,7 @@ public class FingerMapping2D : MonoBehaviour
             //    fingerAngles[index++] = Vector3.Angle(intermediateDirection, distalDirection);      // Between Intermediate and Distal
             //}
 
-            // Add wrist flexion/extension (for simplicity, we’ll use palm normal)
+            // Add wrist flexion/extension (for simplicity, weï¿½ll use palm normal)
             Vector3 palmNormal = new Vector3(
                 firstHand.PalmNormal.x,
                 firstHand.PalmNormal.y,

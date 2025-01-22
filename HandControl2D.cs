@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Leap;
-using Leap.Unity;
+//using Leap.Unity;
 
 public class HandControl2D : MonoBehaviour
 {
@@ -28,7 +28,7 @@ public class HandControl2D : MonoBehaviour
             Hand firstHand = frame.Hands[0];
 
             // Get palm position and map it to 2D coordinates
-            Vector palmPosition = firstHand.PalmPosition;
+            Vector3 palmPosition = firstHand.PalmPosition;
 
             // Convert Leap Motion Vector to Unity Vector3
             Vector3 handPosition = new Vector3(palmPosition.x, palmPosition.y, palmPosition.z);

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Leap;
-using Leap.Unity;
+//using Leap.Unity;
 
 public class GestureMapping2D : MonoBehaviour
 {
@@ -99,22 +99,22 @@ public class GestureMapping2D : MonoBehaviour
         float[] gestureVector = new float[15]; // 15-dimensional vector (3 joints per finger)
         int index = 0;
 
-        foreach (Finger finger in hand.Fingers)
+        foreach (Finger finger in hand.fingers)
         {
             Vector3 proximalDirection = new Vector3(
-                finger.Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.x,
-                finger.Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.y,
-                finger.Bone(Bone.BoneType.TYPE_PROXIMAL).Direction.z);
+                finger.bones[1].Direction.x,
+                finger.bones[1].Direction.y,
+                finger.bones[1].Direction.z);
 
             Vector3 intermediateDirection = new Vector3(
-                finger.Bone(Bone.BoneType.TYPE_INTERMEDIATE).Direction.x,
-                finger.Bone(Bone.BoneType.TYPE_INTERMEDIATE).Direction.y,
-                finger.Bone(Bone.BoneType.TYPE_INTERMEDIATE).Direction.z);
+                finger.bones[2].Direction.x,
+                finger.bones[2].Direction.y,
+                finger.bones[2].Direction.z);
 
             Vector3 distalDirection = new Vector3(
-                finger.Bone(Bone.BoneType.TYPE_DISTAL).Direction.x,
-                finger.Bone(Bone.BoneType.TYPE_DISTAL).Direction.y,
-                finger.Bone(Bone.BoneType.TYPE_DISTAL).Direction.z);
+                finger.bones[3].Direction.x,
+                finger.bones[3].Direction.y,
+                finger.bones[3].Direction.z);
 
             // Calculate relative angles between each pair of bones
             gestureVector[index++] = Vector3.Angle(proximalDirection, intermediateDirection);  // Between Proximal and Intermediate
