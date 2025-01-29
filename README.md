@@ -8,6 +8,6 @@ Ultraleap Tracking Service Version: 5.20.0 (https://leap2.ultraleap.com/download
 
 Control Panel Version: 3.4.1 (https://leap2.ultraleap.com/downloads/leap-motion-controller/)
 
-Ultraleap Unity Plugin Version: 7.2.0 (Outdated versions like 4.8.0 may not be supported)
+Ultraleap Unity Plugin Version: 7.2.0 (https://github.com/ultraleap/UnityPlugin) (Outdated versions like 4.8.0 may not be supported)
 
 Required Packages: AR Foundation, Burst
