@@ -4,6 +4,7 @@ using UnityEngine;
 using Leap;
 //using Leap.Unity;
 using TMPro;
+using System;
 
 public class Gesture19DMapping2D : MonoBehaviour
 {
@@ -14,10 +15,10 @@ public class Gesture19DMapping2D : MonoBehaviour
     public GameObject movableObject;
 
     // Capture buttons for each gesture
-    public KeyCode captureOpenHandKey = KeyCode.Alpha1;
-    public KeyCode captureGunGestureKey = KeyCode.Alpha2;
-    public KeyCode captureClawGestureKey = KeyCode.Alpha3;
-    public KeyCode captureFistGestureKey = KeyCode.Alpha4;
+    public KeyCode captureOpenHandKey = KeyCode.UpArrow;
+    public KeyCode captureGunGestureKey = KeyCode.DownArrow;
+    public KeyCode captureClawGestureKey = KeyCode.LeftArrow;
+    public KeyCode captureFistGestureKey = KeyCode.RightArrow;
 
     // Variables for storing the four gesture vectors (open hand, gun, claw, fist)
     private float[] openHandGesture;
@@ -54,7 +55,7 @@ public class Gesture19DMapping2D : MonoBehaviour
 
             // Get the current gesture vector (relative joint angles of the hand)
             float[] currentGesture = GetHandGestureVector(firstHand);
-
+            // Debug.Log("Current Gesture[0]: " + currentGesture[0]);
             // Capture gestures
             if (Input.GetKeyDown(captureOpenHandKey))
             {
@@ -105,7 +106,7 @@ public class Gesture19DMapping2D : MonoBehaviour
     {
         float[] gestureVector = new float[21]; // 19-dimensional vector (3 joints per finger + abduction/adduction + wrist movement)
         int index = 0;
-
+        // Debug.Log("Hand: " + hand);
         foreach (Finger finger in hand.fingers)
         {
             // Convert Leap.Vector to Unity.Vector3 manually
@@ -113,12 +114,12 @@ public class Gesture19DMapping2D : MonoBehaviour
                 finger.bones[1].Direction.x,
                 finger.bones[1].Direction.y,
                 finger.bones[1].Direction.z);
-
+            
             Vector3 intermediateDirection = new Vector3(
                 finger.bones[2].Direction.x,
                 finger.bones[2].Direction.y,
                 finger.bones[2].Direction.z);
-
+            
             Vector3 distalDirection = new Vector3(
                 finger.bones[3].Direction.x,
                 finger.bones[3].Direction.y,
@@ -138,7 +139,7 @@ public class Gesture19DMapping2D : MonoBehaviour
             new Vector3(hand.fingers[2].bones[1].Direction.x,
                         hand.fingers[2].bones[1].Direction.y,
                         hand.fingers[2].bones[1].Direction.z));  // Index to Middle
-
+        
         gestureVector[index++] = Vector3.Angle(
             new Vector3(hand.fingers[2].bones[1].Direction.x,
                         hand.fingers[2].bones[1].Direction.y,
@@ -174,7 +175,7 @@ public class Gesture19DMapping2D : MonoBehaviour
             gestureVector[index++] = 0f; // Flexion/Extension
             gestureVector[index++] = 0f; // Abduction/Adduction
         }
-
+    
         return gestureVector;
     }
 

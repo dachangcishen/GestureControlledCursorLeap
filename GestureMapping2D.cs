@@ -13,10 +13,10 @@ public class GestureMapping2D : MonoBehaviour
     public GameObject movableObject;
 
     // Capture buttons for each gesture
-    public KeyCode captureOpenHandKey = KeyCode.Alpha1;
-    public KeyCode captureGunGestureKey = KeyCode.Alpha2;
-    public KeyCode captureClawGestureKey = KeyCode.Alpha3;
-    public KeyCode captureFistGestureKey = KeyCode.Alpha4;
+    public KeyCode captureOpenHandKey = KeyCode.UpArrow;
+    public KeyCode captureGunGestureKey = KeyCode.DownArrow;
+    public KeyCode captureClawGestureKey = KeyCode.LeftArrow;
+    public KeyCode captureFistGestureKey = KeyCode.RightArrow;
 
     // Variables for storing the four gesture vectors (open hand, gun, claw, fist)
     private float[] openHandGesture;
