@@ -12,4 +12,4 @@ Ultraleap Unity Plugin Version: 7.2.0 (https://github.com/ultraleap/UnityPlugin)
 
 Unity Version: Unity 2022 (Unity 6 is not supported yet)
 
-Required Packages: AR Foundation, Burst，NuGetForUnity (with NamespaceMathNet.Numerics)
+Required Packages: AR Foundation, Burst, NuGetForUnity (with MathNet.Numerics)
