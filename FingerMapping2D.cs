@@ -46,7 +46,7 @@ public class FingerMapping2D : MonoBehaviour
 
             // Get all finger joints data into a 19-dimensional vector (as in the study)
             float[] fingerAngles = new float[19];
-            int index = 0;
+            //int index = 0;
 
             //foreach (Finger finger in firstHand.Fingers)
             //{

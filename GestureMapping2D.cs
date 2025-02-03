@@ -30,10 +30,10 @@ public class GestureMapping2D : MonoBehaviour
     public Vector2 maxBounds;          // Max X and Y values for 2D plane movement
 
     // Flags to check if gestures are captured
-    private bool isOpenHandCaptured = false;
-    private bool isGunGestureCaptured = false;
-    private bool isClawGestureCaptured = false;
-    private bool isFistGestureCaptured = false;
+    public bool isOpenHandCaptured = false;
+    public bool isGunGestureCaptured = false;
+    public bool isClawGestureCaptured = false;
+    public bool isFistGestureCaptured = false;
 
     void Update()
     {

@@ -21,7 +21,7 @@ public class HandControl2D : MonoBehaviour
     {
         // Get the current frame from the Leap Motion provider
         Frame frame = leapProvider.CurrentFrame;
-
+        
         if (frame != null && frame.Hands.Count > 0)
         {
             // Use the first hand detected (can be extended to multiple hands if needed)

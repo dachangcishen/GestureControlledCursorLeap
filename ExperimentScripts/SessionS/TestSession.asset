@@ -1,0 +1,223 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc518326f86a9d34abb92cd69c0a81c1, type: 3}
+  m_Name: TestSession
+  m_EditorClassIdentifier: 
+  ParticipantID: TestParticipant
+  numberOfTrialsPerBlock: 8
+  numberOfBlocksPerSession: 4
+  hasBeenInitialised: 1
+  blocks:
+  - numberOfTrialsInBlock: 8
+    trials:
+    - xPosition: 5
+      yPosition: 0.5
+      zPosition: 15
+      interceptedResult: 1
+      responseTime: 2.3402255
+    - xPosition: -20
+      yPosition: 0.5
+      zPosition: 0
+      interceptedResult: 1
+      responseTime: 3.8810234
+    - xPosition: -5
+      yPosition: 0.5
+      zPosition: 15
+      interceptedResult: 1
+      responseTime: -999
+    - xPosition: 0
+      yPosition: 0.5
+      zPosition: 20
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 5
+      yPosition: 0.5
+      zPosition: -15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 0
+      yPosition: 0.5
+      zPosition: -20
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: -5
+      yPosition: 0.5
+      zPosition: -15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 20
+      yPosition: 0.5
+      zPosition: 0
+      interceptedResult: -999
+      responseTime: -999
+    trialPositions:
+    - {x: 5, y: 0.5, z: 15}
+    - {x: -20, y: 0.5, z: 0}
+    - {x: -5, y: 0.5, z: 15}
+    - {x: 0, y: 0.5, z: 20}
+    - {x: 5, y: 0.5, z: -15}
+    - {x: 0, y: 0.5, z: -20}
+    - {x: -5, y: 0.5, z: -15}
+    - {x: 20, y: 0.5, z: 0}
+  - numberOfTrialsInBlock: 8
+    trials:
+    - xPosition: 20
+      yPosition: 0.5
+      zPosition: 0
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: -20
+      yPosition: 0.5
+      zPosition: 0
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: -5
+      yPosition: 0.5
+      zPosition: 15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 5
+      yPosition: 0.5
+      zPosition: -15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 5
+      yPosition: 0.5
+      zPosition: 15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 0
+      yPosition: 0.5
+      zPosition: 20
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 0
+      yPosition: 0.5
+      zPosition: -20
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: -5
+      yPosition: 0.5
+      zPosition: -15
+      interceptedResult: -999
+      responseTime: -999
+    trialPositions:
+    - {x: 20, y: 0.5, z: 0}
+    - {x: -20, y: 0.5, z: 0}
+    - {x: -5, y: 0.5, z: 15}
+    - {x: 5, y: 0.5, z: -15}
+    - {x: 5, y: 0.5, z: 15}
+    - {x: 0, y: 0.5, z: 20}
+    - {x: 0, y: 0.5, z: -20}
+    - {x: -5, y: 0.5, z: -15}
+  - numberOfTrialsInBlock: 8
+    trials:
+    - xPosition: -5
+      yPosition: 0.5
+      zPosition: -15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 0
+      yPosition: 0.5
+      zPosition: -20
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 5
+      yPosition: 0.5
+      zPosition: 15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: -5
+      yPosition: 0.5
+      zPosition: 15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 20
+      yPosition: 0.5
+      zPosition: 0
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: -20
+      yPosition: 0.5
+      zPosition: 0
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 0
+      yPosition: 0.5
+      zPosition: 20
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 5
+      yPosition: 0.5
+      zPosition: -15
+      interceptedResult: -999
+      responseTime: -999
+    trialPositions:
+    - {x: -5, y: 0.5, z: -15}
+    - {x: 0, y: 0.5, z: -20}
+    - {x: 5, y: 0.5, z: 15}
+    - {x: -5, y: 0.5, z: 15}
+    - {x: 20, y: 0.5, z: 0}
+    - {x: -20, y: 0.5, z: 0}
+    - {x: 0, y: 0.5, z: 20}
+    - {x: 5, y: 0.5, z: -15}
+  - numberOfTrialsInBlock: 8
+    trials:
+    - xPosition: 0
+      yPosition: 0.5
+      zPosition: -20
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 5
+      yPosition: 0.5
+      zPosition: 15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 20
+      yPosition: 0.5
+      zPosition: 0
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: -5
+      yPosition: 0.5
+      zPosition: 15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: -20
+      yPosition: 0.5
+      zPosition: 0
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: -5
+      yPosition: 0.5
+      zPosition: -15
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 0
+      yPosition: 0.5
+      zPosition: 20
+      interceptedResult: -999
+      responseTime: -999
+    - xPosition: 5
+      yPosition: 0.5
+      zPosition: -15
+      interceptedResult: -999
+      responseTime: -999
+    trialPositions:
+    - {x: 0, y: 0.5, z: -20}
+    - {x: 5, y: 0.5, z: 15}
+    - {x: 20, y: 0.5, z: 0}
+    - {x: -5, y: 0.5, z: 15}
+    - {x: -20, y: 0.5, z: 0}
+    - {x: -5, y: 0.5, z: -15}
+    - {x: 0, y: 0.5, z: 20}
+    - {x: 5, y: 0.5, z: -15}

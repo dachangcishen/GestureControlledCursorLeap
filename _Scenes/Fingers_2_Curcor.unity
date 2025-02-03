@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 40056005}
   - component: {fileID: 40056006}
   - component: {fileID: 40056007}
+  - component: {fileID: 40056008}
   m_Layer: 0
   m_Name: Diar_CursorController
   m_TagString: Untagged
@@ -180,7 +181,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40055999}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6c867bcba59ec64b9a65cda4204ac5b, type: 3}
   m_Name: 
@@ -194,6 +195,10 @@ MonoBehaviour:
   movementScale: 2
   minBounds: {x: -1, y: -1}
   maxBounds: {x: 1, y: 1}
+  isOpenHandCaptured: 0
+  isGunGestureCaptured: 0
+  isClawGestureCaptured: 0
+  isFistGestureCaptured: 0
 --- !u!114 &40056007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +221,48 @@ MonoBehaviour:
   minBounds: {x: -1, y: -1}
   maxBounds: {x: 1, y: 1}
   includeWristMovements: 0
+--- !u!114 &40056008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40055999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d73ed18f41a82144da895b714c1f2c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leapProvider: {fileID: 1707609424}
+  movableObject: {fileID: 486754685}
+  captureOpenHandKey: 273
+  captureGunGestureKey: 274
+  captureClawGestureKey: 276
+  captureFistGestureKey: 275
+  currentGesture:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  movementScale: 1
+  minBounds: {x: -1, y: -1}
+  maxBounds: {x: 1, y: 1}
+  isOpenHandCaptured: 0
+  isGunGestureCaptured: 0
+  isClawGestureCaptured: 0
+  isFistGestureCaptured: 0
+  isCalibrated: 0
 --- !u!1 &310502993
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +902,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 464466, guid: 39d18871c11b53c4082d8202e3db68a3, type: 3}
   m_PrefabInstance: {fileID: 1555061049}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1141725308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141725311}
+  - component: {fileID: 1141725310}
+  - component: {fileID: 1141725309}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1141725309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141725308}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b8b63a893eed8f4c9cafdbb0eb0367f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 802617227721240837, guid: 35950f693b71447d9bf4f007a68e7a72, type: 3}
+  trialStarted: 0
+  currentTrial:
+    xPosition: 0
+    yPosition: 0
+    zPosition: 0
+    interceptedResult: 0
+    responseTime: 0
+--- !u!114 &1141725310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141725308}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e48122c211d486e49ae6ee554759b764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticipantID: 
+  numberOfBlocks: 4
+  numberOfTrials: 8
+  thisSession:
+    ParticipantID: 
+    numberOfTrialsPerBlock: 0
+    numberOfBlocksPerSession: 0
+    blocks: []
+  thisSessionScriptable: {fileID: 11400000, guid: baa07bc251d5e4d4d8abe835ca7d854e, type: 2}
+  waitingForResponse: 0
+--- !u!4 &1141725311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141725308}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.007850264, y: -0.12652542, z: 0.23260465}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325830794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,3 +1452,4 @@ SceneRoots:
   - {fileID: 486754689}
   - {fileID: 310502997}
   - {fileID: 2132156708}
+  - {fileID: 1141725311}
