@@ -131,10 +131,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 40056003}
-  - component: {fileID: 40056005}
-  - component: {fileID: 40056006}
-  - component: {fileID: 40056007}
   - component: {fileID: 40056008}
+  - component: {fileID: 40056009}
   m_Layer: 0
   m_Name: Diar_CursorController
   m_TagString: Untagged
@@ -157,70 +155,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &40056005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40055999}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39818b98ab53e5a4eba30bd212520999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leapProvider: {fileID: 1707609424}
-  movableObject: {fileID: 486754685}
-  movementScale: 5
-  minBounds: {x: -1, y: -1}
-  maxBounds: {x: 1, y: 1}
---- !u!114 &40056006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40055999}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6c867bcba59ec64b9a65cda4204ac5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leapProvider: {fileID: 1707609424}
-  movableObject: {fileID: 486754685}
-  captureOpenHandKey: 273
-  captureGunGestureKey: 274
-  captureClawGestureKey: 276
-  captureFistGestureKey: 275
-  movementScale: 2
-  minBounds: {x: -1, y: -1}
-  maxBounds: {x: 1, y: 1}
-  isOpenHandCaptured: 0
-  isGunGestureCaptured: 0
-  isClawGestureCaptured: 0
-  isFistGestureCaptured: 0
---- !u!114 &40056007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40055999}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e76b644a877a284b8358ac7e95d8d9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leapProvider: {fileID: 1707609424}
-  movableObject: {fileID: 486754685}
-  captureOpenHandKey: 273
-  captureGunGestureKey: 274
-  captureClawGestureKey: 276
-  captureFistGestureKey: 275
-  movementScale: 3
-  minBounds: {x: -1, y: -1}
-  maxBounds: {x: 1, y: 1}
-  includeWristMovements: 0
 --- !u!114 &40056008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40055999}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d73ed18f41a82144da895b714c1f2c59, type: 3}
   m_Name: 
@@ -255,6 +189,124 @@ MonoBehaviour:
   - 0
   - 0
   - 0
+  save:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  subjectName: Subject1
+  movementScale: 1
+  minBounds: {x: -1, y: -1}
+  maxBounds: {x: 1, y: 1}
+  isOpenHandCaptured: 0
+  isGunGestureCaptured: 0
+  isClawGestureCaptured: 0
+  isFistGestureCaptured: 0
+  isCalibrated: 0
+--- !u!114 &40056009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40055999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfaeb8281c07cc044a03b5f9e7c10fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leapProvider: {fileID: 1707609424}
+  movableObject: {fileID: 486754685}
+  captureOpenHandKey: 273
+  captureGunGestureKey: 274
+  captureClawGestureKey: 276
+  captureFistGestureKey: 275
+  currentGesture:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  save:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  subjectName: Subject1_19D
   movementScale: 1
   minBounds: {x: -1, y: -1}
   maxBounds: {x: 1, y: 1}
@@ -588,7 +640,7 @@ GameObject:
   - component: {fileID: 486754686}
   m_Layer: 0
   m_Name: Cursor
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -927,7 +979,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141725308}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b8b63a893eed8f4c9cafdbb0eb0367f, type: 3}
   m_Name: 
@@ -947,7 +999,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141725308}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e48122c211d486e49ae6ee554759b764, type: 3}
   m_Name: 
@@ -960,7 +1012,7 @@ MonoBehaviour:
     numberOfTrialsPerBlock: 0
     numberOfBlocksPerSession: 0
     blocks: []
-  thisSessionScriptable: {fileID: 11400000, guid: baa07bc251d5e4d4d8abe835ca7d854e, type: 2}
+  thisSessionScriptable: {fileID: 11400000, guid: c3ef94d2ddb0bbc4888ff55292801a2c, type: 2}
   waitingForResponse: 0
 --- !u!4 &1141725311
 Transform:

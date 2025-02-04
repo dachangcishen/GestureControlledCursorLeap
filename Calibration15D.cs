@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Leap;
 using MathNet.Numerics.LinearAlgebra.Complex;
- 
+using System.IO;
 public class Calibration15D : MonoBehaviour
 {
     // Reference to Leap Motion Hand Provider
@@ -24,9 +24,11 @@ public class Calibration15D : MonoBehaviour
     private double[] clawGesture;
     private double[] fistGesture;
     public double[] currentGesture = new double[15];
+    public double[] save = new double[30];
     public double[,] currentGesture2D = new double[15, 1];
     public double[,] a = new double[2, 15];
     public MathNet.Numerics.LinearAlgebra.Double.DenseMatrix aMatrix;
+    public string subjectName = "Subject1";
 
     // Variables to define the 2D plane for movement
     public double movementScale = 1.0f; // Scale factor for hand movements
@@ -40,6 +42,26 @@ public class Calibration15D : MonoBehaviour
     public bool isFistGestureCaptured = false;
     public bool isCalibrated = false;
 
+    void Start()
+    {
+        // Read the gesture data from a text file
+        string filePath = Application.dataPath + "/" + subjectName + ".txt";
+        if (File.Exists(filePath))
+        {
+            string[] lines = File.ReadAllLines(filePath);
+            for (int i = 0; i < lines.Length && i < 30; i++)
+            {
+                save[i] = double.Parse(lines[i]);
+            }
+            if (save[29] != 0) isCalibrated = true;
+            for (int i = 0; i < 15; i++)
+            {
+                a[0, i] = save[2 * i];
+                a[1, i] = save[2 * i + 1];
+            }
+            aMatrix = MathNet.Numerics.LinearAlgebra.Double.DenseMatrix.OfArray(a);
+        }
+    }
     void Update()
     {
         // Get the current frame from the Leap Motion provider
@@ -82,7 +104,7 @@ public class Calibration15D : MonoBehaviour
             // Only move the cursor if all gestures are captured
             if (isOpenHandCaptured && isGunGestureCaptured && isClawGestureCaptured && isFistGestureCaptured && !isCalibrated)
             {
-                double[,] p = new double[8, 1] {{1.0}, {1.0}, {-1.0}, {1.0}, {-1.0}, {-1.0},{1.0}, {-1.0} };
+                double[,] p = new double[8, 1] {{-1.0}, {1.0}, {1.0}, {1.0}, {-1.0}, {-1.0},{1.0}, {-1.0} };
                 double[,] h = new double[8, 30];
                 for (int i = 0; i < 15; i++){
                     h[0 , i] = openHandGesture[i];
@@ -101,9 +123,20 @@ public class Calibration15D : MonoBehaviour
                 for (int i = 0; i < 15; i++){
                     a[0, i] = flattenedAMatrix[i, 0];
                     a[1, i] = flattenedAMatrix[i + 15, 0];
+                    save[2 * i] = a[0, i];
+                    save[2 * i + 1] = a[1, i];
                 }
                 aMatrix = MathNet.Numerics.LinearAlgebra.Double.DenseMatrix.OfArray(a);
                 isCalibrated = true;
+                // Save the gesture data to a text file
+                string filePath = Application.dataPath + "/" + subjectName + ".txt";
+                using (StreamWriter file = new StreamWriter(filePath))
+                {
+                    for (int i = 0; i < save.Length; i++)
+                    {
+                        file.WriteLine(save[i]);
+                    }
+                }
             }
             if (isCalibrated)
             {

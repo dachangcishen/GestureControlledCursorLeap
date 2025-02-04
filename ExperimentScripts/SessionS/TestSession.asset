@@ -12,212 +12,212 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc518326f86a9d34abb92cd69c0a81c1, type: 3}
   m_Name: TestSession
   m_EditorClassIdentifier: 
-  ParticipantID: TestParticipant
+  ParticipantID: 
   numberOfTrialsPerBlock: 8
   numberOfBlocksPerSession: 4
   hasBeenInitialised: 1
   blocks:
   - numberOfTrialsInBlock: 8
     trials:
-    - xPosition: 5
-      yPosition: 0.5
-      zPosition: 15
+    - xPosition: 0.4
+      yPosition: 0.4
+      zPosition: 2
       interceptedResult: 1
-      responseTime: 2.3402255
-    - xPosition: -20
-      yPosition: 0.5
-      zPosition: 0
+      responseTime: 5.4000406
+    - xPosition: -0.4
+      yPosition: 0.4
+      zPosition: 2
       interceptedResult: 1
-      responseTime: 3.8810234
-    - xPosition: -5
-      yPosition: 0.5
-      zPosition: 15
+      responseTime: 13.117079
+    - xPosition: -0.4
+      yPosition: -0.4
+      zPosition: 2
       interceptedResult: 1
-      responseTime: -999
+      responseTime: 3.201793
+    - xPosition: 0.4
+      yPosition: -0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 10.192756
+    - xPosition: -0.7
+      yPosition: 0.7
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 15.281287
+    - xPosition: 0.7
+      yPosition: -0.7
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 12.961296
     - xPosition: 0
-      yPosition: 0.5
-      zPosition: 20
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: 5
-      yPosition: 0.5
-      zPosition: -15
-      interceptedResult: -999
-      responseTime: -999
+      yPosition: 0
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.5134716
     - xPosition: 0
-      yPosition: 0.5
-      zPosition: -20
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: -5
-      yPosition: 0.5
-      zPosition: -15
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: 20
-      yPosition: 0.5
-      zPosition: 0
-      interceptedResult: -999
-      responseTime: -999
+      yPosition: 0
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 3.762748
     trialPositions:
-    - {x: 5, y: 0.5, z: 15}
-    - {x: -20, y: 0.5, z: 0}
-    - {x: -5, y: 0.5, z: 15}
-    - {x: 0, y: 0.5, z: 20}
-    - {x: 5, y: 0.5, z: -15}
-    - {x: 0, y: 0.5, z: -20}
-    - {x: -5, y: 0.5, z: -15}
-    - {x: 20, y: 0.5, z: 0}
+    - {x: 0.4, y: 0.4, z: 2}
+    - {x: -0.4, y: 0.4, z: 2}
+    - {x: -0.4, y: -0.4, z: 2}
+    - {x: 0.4, y: -0.4, z: 2}
+    - {x: -0.7, y: 0.7, z: 2}
+    - {x: 0.7, y: -0.7, z: 2}
+    - {x: 0, y: 0, z: 2}
+    - {x: 0, y: 0, z: 2}
   - numberOfTrialsInBlock: 8
     trials:
-    - xPosition: 20
-      yPosition: 0.5
-      zPosition: 0
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: -20
-      yPosition: 0.5
-      zPosition: 0
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: -5
-      yPosition: 0.5
-      zPosition: 15
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: 5
-      yPosition: 0.5
-      zPosition: -15
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: 5
-      yPosition: 0.5
-      zPosition: 15
-      interceptedResult: -999
-      responseTime: -999
+    - xPosition: 0.7
+      yPosition: -0.7
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.7117672
+    - xPosition: 0.4
+      yPosition: -0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.0546885
+    - xPosition: 0.4
+      yPosition: 0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.8231635
+    - xPosition: -0.4
+      yPosition: -0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 11.241366
     - xPosition: 0
-      yPosition: 0.5
-      zPosition: 20
-      interceptedResult: -999
-      responseTime: -999
+      yPosition: 0
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 1.9733311
+    - xPosition: -0.7
+      yPosition: 0.7
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.9197073
+    - xPosition: -0.4
+      yPosition: 0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.3484387
     - xPosition: 0
-      yPosition: 0.5
-      zPosition: -20
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: -5
-      yPosition: 0.5
-      zPosition: -15
-      interceptedResult: -999
-      responseTime: -999
+      yPosition: 0
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.4748619
     trialPositions:
-    - {x: 20, y: 0.5, z: 0}
-    - {x: -20, y: 0.5, z: 0}
-    - {x: -5, y: 0.5, z: 15}
-    - {x: 5, y: 0.5, z: -15}
-    - {x: 5, y: 0.5, z: 15}
-    - {x: 0, y: 0.5, z: 20}
-    - {x: 0, y: 0.5, z: -20}
-    - {x: -5, y: 0.5, z: -15}
+    - {x: 0.7, y: -0.7, z: 2}
+    - {x: 0.4, y: -0.4, z: 2}
+    - {x: 0.4, y: 0.4, z: 2}
+    - {x: -0.4, y: -0.4, z: 2}
+    - {x: 0, y: 0, z: 2}
+    - {x: -0.7, y: 0.7, z: 2}
+    - {x: -0.4, y: 0.4, z: 2}
+    - {x: 0, y: 0, z: 2}
   - numberOfTrialsInBlock: 8
     trials:
-    - xPosition: -5
-      yPosition: 0.5
-      zPosition: -15
-      interceptedResult: -999
-      responseTime: -999
+    - xPosition: 0.7
+      yPosition: -0.7
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.1545517
+    - xPosition: -0.4
+      yPosition: -0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 4.1425686
+    - xPosition: -0.7
+      yPosition: 0.7
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.487078
+    - xPosition: 0.4
+      yPosition: -0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 3.4646373
+    - xPosition: 0.4
+      yPosition: 0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 1.8737046
     - xPosition: 0
-      yPosition: 0.5
-      zPosition: -20
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: 5
-      yPosition: 0.5
-      zPosition: 15
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: -5
-      yPosition: 0.5
-      zPosition: 15
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: 20
-      yPosition: 0.5
-      zPosition: 0
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: -20
-      yPosition: 0.5
-      zPosition: 0
-      interceptedResult: -999
-      responseTime: -999
+      yPosition: 0
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.9455295
     - xPosition: 0
-      yPosition: 0.5
-      zPosition: 20
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: 5
-      yPosition: 0.5
-      zPosition: -15
-      interceptedResult: -999
-      responseTime: -999
+      yPosition: 0
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 0.2322736
+    - xPosition: -0.4
+      yPosition: 0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.4402409
     trialPositions:
-    - {x: -5, y: 0.5, z: -15}
-    - {x: 0, y: 0.5, z: -20}
-    - {x: 5, y: 0.5, z: 15}
-    - {x: -5, y: 0.5, z: 15}
-    - {x: 20, y: 0.5, z: 0}
-    - {x: -20, y: 0.5, z: 0}
-    - {x: 0, y: 0.5, z: 20}
-    - {x: 5, y: 0.5, z: -15}
+    - {x: 0.7, y: -0.7, z: 2}
+    - {x: -0.4, y: -0.4, z: 2}
+    - {x: -0.7, y: 0.7, z: 2}
+    - {x: 0.4, y: -0.4, z: 2}
+    - {x: 0.4, y: 0.4, z: 2}
+    - {x: 0, y: 0, z: 2}
+    - {x: 0, y: 0, z: 2}
+    - {x: -0.4, y: 0.4, z: 2}
   - numberOfTrialsInBlock: 8
     trials:
+    - xPosition: 0.4
+      yPosition: 0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 1.6694416
     - xPosition: 0
-      yPosition: 0.5
-      zPosition: -20
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: 5
-      yPosition: 0.5
-      zPosition: 15
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: 20
-      yPosition: 0.5
-      zPosition: 0
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: -5
-      yPosition: 0.5
-      zPosition: 15
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: -20
-      yPosition: 0.5
-      zPosition: 0
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: -5
-      yPosition: 0.5
-      zPosition: -15
-      interceptedResult: -999
-      responseTime: -999
+      yPosition: 0
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 0.8958024
+    - xPosition: -0.4
+      yPosition: 0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 1.5527962
+    - xPosition: 0.7
+      yPosition: -0.7
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 1.6430614
+    - xPosition: 0.4
+      yPosition: -0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.2858894
+    - xPosition: -0.7
+      yPosition: 0.7
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 2.337562
+    - xPosition: -0.4
+      yPosition: -0.4
+      zPosition: 2
+      interceptedResult: 1
+      responseTime: 1.7555637
     - xPosition: 0
-      yPosition: 0.5
-      zPosition: 20
-      interceptedResult: -999
-      responseTime: -999
-    - xPosition: 5
-      yPosition: 0.5
-      zPosition: -15
-      interceptedResult: -999
+      yPosition: 0
+      zPosition: 2
+      interceptedResult: 1
       responseTime: -999
     trialPositions:
-    - {x: 0, y: 0.5, z: -20}
-    - {x: 5, y: 0.5, z: 15}
-    - {x: 20, y: 0.5, z: 0}
-    - {x: -5, y: 0.5, z: 15}
-    - {x: -20, y: 0.5, z: 0}
-    - {x: -5, y: 0.5, z: -15}
-    - {x: 0, y: 0.5, z: 20}
-    - {x: 5, y: 0.5, z: -15}
+    - {x: 0.4, y: 0.4, z: 2}
+    - {x: 0, y: 0, z: 2}
+    - {x: -0.4, y: 0.4, z: 2}
+    - {x: 0.7, y: -0.7, z: 2}
+    - {x: 0.4, y: -0.4, z: 2}
+    - {x: -0.7, y: 0.7, z: 2}
+    - {x: -0.4, y: -0.4, z: 2}
+    - {x: 0, y: 0, z: 2}

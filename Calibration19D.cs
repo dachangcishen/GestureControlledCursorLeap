@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Leap;
-
+using MathNet.Numerics.LinearAlgebra.Complex;
+using System.IO;
 public class Calibration19D : MonoBehaviour
 {
     // Reference to Leap Motion Hand Provider
@@ -23,9 +24,11 @@ public class Calibration19D : MonoBehaviour
     private double[] clawGesture;
     private double[] fistGesture;
     public double[] currentGesture = new double[19];
+    public double[] save = new double[38];
     public double[,] currentGesture2D = new double[19, 1];
     public double[,] a = new double[2, 19];
     public MathNet.Numerics.LinearAlgebra.Double.DenseMatrix aMatrix;
+    public string subjectName = "Subject1_19D";
 
     // Variables to define the 2D plane for movement
     public double movementScale = 1.0f; // Scale factor for hand movements
@@ -39,6 +42,26 @@ public class Calibration19D : MonoBehaviour
     public bool isFistGestureCaptured = false;
     public bool isCalibrated = false;
 
+    void Start()
+    {
+        // Read the gesture data from a text file
+        string filePath = Application.dataPath + "/" + subjectName + ".txt";
+        if (File.Exists(filePath))
+        {
+            string[] lines = File.ReadAllLines(filePath);
+            for (int i = 0; i < lines.Length && i < 38; i++)
+            {
+                save[i] = double.Parse(lines[i]);
+            }
+            if (save[29] != 0) isCalibrated = true;
+            for (int i = 0; i < 19; i++)
+            {
+                a[0, i] = save[2 * i];
+                a[1, i] = save[2 * i + 1];
+            }
+            aMatrix = MathNet.Numerics.LinearAlgebra.Double.DenseMatrix.OfArray(a);
+        }
+    }
     void Update()
     {
         // Get the current frame from the Leap Motion provider
@@ -81,7 +104,7 @@ public class Calibration19D : MonoBehaviour
             // Only move the cursor if all gestures are captured
             if (isOpenHandCaptured && isGunGestureCaptured && isClawGestureCaptured && isFistGestureCaptured && !isCalibrated)
             {
-                double[,] p = new double[8, 1] {{1.0}, {1.0}, {-1.0}, {1.0}, {-1.0}, {-1.0},{1.0}, {-1.0} };
+                double[,] p = new double[8, 1] {{-1.0}, {1.0}, {1.0}, {1.0}, {-1.0}, {-1.0},{1.0}, {-1.0} };
                 double[,] h = new double[8, 38];
                 for (int i = 0; i < 19; i++){
                     h[0 , i] = openHandGesture[i];
@@ -100,9 +123,20 @@ public class Calibration19D : MonoBehaviour
                 for (int i = 0; i < 19; i++){
                     a[0, i] = flattenedAMatrix[i, 0];
                     a[1, i] = flattenedAMatrix[i + 19, 0];
+                    save[2 * i] = a[0, i];
+                    save[2 * i + 1] = a[1, i];
                 }
                 aMatrix = MathNet.Numerics.LinearAlgebra.Double.DenseMatrix.OfArray(a);
                 isCalibrated = true;
+                // Save the gesture data to a text file
+                string filePath = Application.dataPath + "/" + subjectName + ".txt";
+                using (StreamWriter file = new StreamWriter(filePath))
+                {
+                    for (int i = 0; i < save.Length; i++)
+                    {
+                        file.WriteLine(save[i]);
+                    }
+                }
             }
             if (isCalibrated)
             {
@@ -126,7 +160,7 @@ public class Calibration19D : MonoBehaviour
     // Function to get the gesture vector (finger joint angles) of the hand
     double[] GetHandGestureVector(Hand hand)
     {
-        double[] gestureVector = new double[21]; // 19-dimensional vector (3 joints per finger + abduction/adduction + wrist movement)
+        double[] gestureVector = new double[19]; // 19-dimensional vector (3 joints per finger + abduction/adduction + wrist movement)
         int index = 0;
         bool includeWristMovements = true;
         // Debug.Log("Hand: " + hand);
@@ -186,17 +220,11 @@ public class Calibration19D : MonoBehaviour
             gestureVector[index++] = Vector3.Angle(
                 new Vector3(hand.PalmNormal.x, hand.PalmNormal.y, hand.PalmNormal.z),
                 Vector3.up);    // Flexion/Extension
-
-            // Wrist abduction/adduction (side-to-side movement)
-            gestureVector[index++] = Vector3.Angle(
-                new Vector3(hand.PalmNormal.x, hand.PalmNormal.y, hand.PalmNormal.z),
-                Vector3.right); // Abduction/Adduction
         }
         else
         {
             // If wrist movements are disabled, fill in with zeroes
             gestureVector[index++] = 0f; // Flexion/Extension
-            gestureVector[index++] = 0f; // Abduction/Adduction
         }
     
         return gestureVector;
