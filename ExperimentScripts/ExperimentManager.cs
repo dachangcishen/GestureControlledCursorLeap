@@ -50,7 +50,7 @@ public class ExperimentManager : MonoBehaviour
         
         for (int currentBlock = 0; currentBlock < session.numberOfBlocksPerSession; currentBlock++)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1.0f);
 
             Debug.Log($"Starting block number {currentBlock}");
 
@@ -65,7 +65,7 @@ public class ExperimentManager : MonoBehaviour
                     continue;
                 }
 
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(1.0f);
                 
                 Debug.Log($"Starting trial number {currentTrial}");
 
@@ -92,7 +92,7 @@ public class ExperimentManager : MonoBehaviour
 
         for (int currentBlock = 0; currentBlock < session.numberOfBlocksPerSession; currentBlock++)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(2.0f);
 
             Debug.Log($"Starting block number {currentBlock}");
 
@@ -100,7 +100,7 @@ public class ExperimentManager : MonoBehaviour
 
             for (int currentTrial = 0; currentTrial < thisBlock.numberOfTrialsInBlock; currentTrial++)
             {
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(2.0f);
 
                 Debug.Log($"Starting trial number {currentTrial}");
 

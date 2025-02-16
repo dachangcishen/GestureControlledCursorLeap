@@ -28,7 +28,7 @@ public class Calibration15D : MonoBehaviour
     public double[,] currentGesture2D = new double[15, 1];
     public double[,] a = new double[2, 15];
     public MathNet.Numerics.LinearAlgebra.Double.DenseMatrix aMatrix;
-    public string subjectName = "Subject1";
+    public string subjectName;
 
     // Variables to define the 2D plane for movement
     public double movementScale = 1.0f; // Scale factor for hand movements

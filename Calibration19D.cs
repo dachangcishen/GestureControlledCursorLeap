@@ -28,7 +28,7 @@ public class Calibration19D : MonoBehaviour
     public double[,] currentGesture2D = new double[19, 1];
     public double[,] a = new double[2, 19];
     public MathNet.Numerics.LinearAlgebra.Double.DenseMatrix aMatrix;
-    public string subjectName = "Subject1_19D";
+    public string subjectName;
 
     // Variables to define the 2D plane for movement
     public double movementScale = 1.0f; // Scale factor for hand movements
@@ -219,7 +219,7 @@ public class Calibration19D : MonoBehaviour
             // Wrist flexion/extension (relative to up/down movement)
             gestureVector[index++] = Vector3.Angle(
                 new Vector3(hand.PalmNormal.x, hand.PalmNormal.y, hand.PalmNormal.z),
-                Vector3.up);    // Flexion/Extension
+                Vector3.forward);    // Flexion/Extension
         }
         else
         {

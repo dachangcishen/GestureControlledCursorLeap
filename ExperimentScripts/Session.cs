@@ -33,13 +33,13 @@ public class Block
     public int numberOfTrialsInBlock;
     [SerializeField]
     public List<Trial> trials;
-    public List<Vector3> trialPositions = new() { new Vector3(0, 0, 2), new Vector3(0, 0, 2), new Vector3(0.4f, 0.4f, 2), new Vector3(-0.4f, -0.4f, 2), new Vector3(-0.4f, 0.4f, 2), new Vector3(0.4f, -0.4f, 2), new Vector3(-0.7f, 0.7f, 2), new Vector3(0.7f, -0.7f, 2) };
+    public List<Vector3> trialPositions = new() { new Vector3(0, 0, 2),  new Vector3(1.0f, 1.0f, 2), new Vector3(0, 0, 2),new Vector3(-1.0f, -1.0f, 2), new Vector3(0, 0, 2), new Vector3(-1.0f, 1.0f, 2), new Vector3(0, 0, 2), new Vector3(1.0f, -1.0f, 2) };
     public Block(int numberOfTrials)
     {
         trials = new();
         numberOfTrialsInBlock = numberOfTrials;
         //shuffle the positions
-        trialPositions = trialPositions.OrderBy(_ => Random.value).ToList();
+        //trialPositions = trialPositions.OrderBy(_ => Random.value).ToList();
         for (int i = 0; i < numberOfTrialsInBlock; i++)
         {
             trials.Add(new Trial(trialPositions[i].x, trialPositions[i].y, trialPositions[i].z));   
