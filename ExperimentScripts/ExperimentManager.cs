@@ -20,12 +20,17 @@ public class ExperimentManager : MonoBehaviour
     public bool probeEnabled = false;
     public bool probeAdopted = false;
     private GameObject target;
+    Block thisBlock;
     Trial thisTrial;
-
+    DateTime startTime;
+    Vector3 startPosition;
+    private GameObject player;
+    bool waitingForReaction = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         thisSession = new Session(ParticipantID, numberOfTrials, numberOfBlocks);
+        player = GameObject.FindWithTag("Player");
         // thisSessionScriptable = ScriptableObject.CreateInstance<SessionScriptable>();
         if (thisSessionScriptable.hasBeenInitialised == false)
         {
@@ -42,7 +47,14 @@ public class ExperimentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(waitingForReaction)
+        {
+            if(Vector3.Distance(player.transform.position, startPosition) > 0.1f)
+            {
+                thisTrial.reactionTime = (float)(DateTime.Now - startTime).TotalSeconds;
+                waitingForReaction = false;
+            }
+        }
     }
 
     public void OnTrialEndFunction(int interceptedResultResponse)
@@ -66,7 +78,7 @@ public class ExperimentManager : MonoBehaviour
 
             Debug.Log($"Starting block number {currentBlock}");
 
-            Block thisBlock = session.blocks[currentBlock];
+            thisBlock = session.blocks[currentBlock];
 
             for (int i = 1; i <= 4; i++)
             {
@@ -90,13 +102,9 @@ public class ExperimentManager : MonoBehaviour
             yield return new WaitForSeconds(2.0f);
 
             LeftTop.text = "";
-
             RightTop.text = "";
-
             LeftBottom.text = "";
-
             RightBottom.text = "";
-
             probeAdopted = false;
             
             if (probeEnabled) {
@@ -106,37 +114,26 @@ public class ExperimentManager : MonoBehaviour
                     probeAdopted = true;
                 }
             }
-            if (probeAdopted){
-                
+            if (probeAdopted){                
                 int randomInt = rnd.Next(4);
-
                 int currentTrial = randomInt * 2 + 1;
-
                 thisTrial = thisBlock.trials[currentTrial];
-
                 //yield return new WaitForSeconds(1.0f);
-
-                DateTime startTime = DateTime.Now;
-
+                startTime = DateTime.Now;
                 EventManager.BeginTrial(thisTrial);
-
+                startPosition = player.transform.position;
+                waitingForReaction = true;
                 waitingForResponse = true;
-
                 target = GameObject.FindWithTag("Respawn");
-
                 target.GetComponent<Renderer>().material.color = Color.red;
-
                 yield return new WaitWhile(() => waitingForResponse);
-
-                session.SaveScriptable();
-                
+                session.SaveScriptable();                
                 Debug.Log($"Finished trial number {currentTrial} with result {thisTrial.interceptedResult}");
-
                 thisTrial.moveTime = (float)(DateTime.Now - startTime).TotalSeconds;
 
                 using (StreamWriter file = new StreamWriter(filePath, true))
                 {
-                    file.WriteLine($"{currentBlock} {currentTrial} {probeEnabled} {probeAdopted} {thisTrial.interceptedResult} {thisTrial.moveTime} {thisTrial.xPosition} {thisTrial.yPosition} {thisTrial.zPosition}");
+                    file.WriteLine($"{currentBlock} {currentTrial} {probeEnabled} {probeAdopted} {thisTrial.interceptedResult} {thisTrial.reactionTime} {thisTrial.moveTime} {thisTrial.xPosition} {thisTrial.yPosition} {thisTrial.zPosition}");
                 }
                 continue;
             }
@@ -154,24 +151,19 @@ public class ExperimentManager : MonoBehaviour
                 //yield return new WaitForSeconds(1.0f);
                 
                 Debug.Log($"Starting trial number {currentTrial}");
-
-                DateTime startTime = DateTime.Now;
-
+                startTime = DateTime.Now;
                 EventManager.BeginTrial(thisTrial);
-
+                startPosition = player.transform.position;
+                waitingForReaction = true;
                 waitingForResponse = true;
                 yield return new WaitWhile(() => waitingForResponse);
-
                 // Save results/session to text file
                 session.SaveScriptable();
-
                 Debug.Log($"Finished trial number {currentTrial} with result {thisTrial.interceptedResult}");
-
                 thisTrial.moveTime = (float)(DateTime.Now - startTime).TotalSeconds;
-
                 using (StreamWriter file = new StreamWriter(filePath, true))
                 {
-                    file.WriteLine($"{currentBlock} {currentTrial} {probeEnabled} {probeAdopted} {thisTrial.interceptedResult} {thisTrial.moveTime} {thisTrial.xPosition} {thisTrial.yPosition} {thisTrial.zPosition}");
+                    file.WriteLine($"{currentBlock} {currentTrial} {probeEnabled} {probeAdopted} {thisTrial.interceptedResult} {thisTrial.reactionTime} {thisTrial.moveTime} {thisTrial.xPosition} {thisTrial.yPosition} {thisTrial.zPosition}");
                 }
             }
         }
@@ -184,21 +176,14 @@ public class ExperimentManager : MonoBehaviour
         for (int currentBlock = 0; currentBlock < session.numberOfBlocksPerSession; currentBlock++)
         {
             yield return new WaitForSeconds(2.0f);
-
             Debug.Log($"Starting block number {currentBlock}");
-
             Block thisBlock = session.blocks[currentBlock];
-
             for (int currentTrial = 0; currentTrial < thisBlock.numberOfTrialsInBlock; currentTrial++)
             {
                 yield return new WaitForSeconds(2.0f);
-
                 Debug.Log($"Starting trial number {currentTrial}");
-
                 thisTrial = thisBlock.trials[currentTrial];
-
                 EventManager.BeginTrial(thisTrial);
-
                 waitingForResponse = true;
                 yield return new WaitWhile(() => waitingForResponse);
 

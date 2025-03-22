@@ -60,7 +60,7 @@ public class Trial
     public float zPosition;
     public int interceptedResult = -999;
     public float moveTime = -999.0f;
-
+    public float reactionTime = -999.0f;
     public Trial(float xPositionForTrial, float yPositionForTrial, float zPositionForTrial)
     {
         xPosition = xPositionForTrial;

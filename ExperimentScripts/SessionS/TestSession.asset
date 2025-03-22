@@ -23,42 +23,50 @@ MonoBehaviour:
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6670433
+      moveTime: 0.6475252
+      reactionTime: 0.2061249
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.7404844
+      moveTime: 0.6619843
+      reactionTime: 0.4674581
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.4607933
+      moveTime: 0.4280404
+      reactionTime: 0.1799249
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6822708
+      moveTime: 0.5200887
+      reactionTime: 0.0168257
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.7619039
+      moveTime: 0.6144661
+      reactionTime: 0.204029
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6500808
+      moveTime: 0.465532
+      reactionTime: 0.2921671
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.4936178
+      moveTime: 0.4059383
+      reactionTime: 0.258536
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.9848515
+      moveTime: 0.5764073
+      reactionTime: 0.3607069
     trialPositions:
     - {x: 1, y: 1, z: 2}
     - {x: 1, y: -1, z: 2}
@@ -70,42 +78,50 @@ MonoBehaviour:
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5558995
+      moveTime: 0.4842899
+      reactionTime: 0.3380477
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.4811809
+      moveTime: 1.1924405
+      reactionTime: 0.2780592
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.544883
+      moveTime: 1.4409988
+      reactionTime: 0.4609938
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6546034
+      moveTime: 0.6090335
+      reactionTime: 0.0597988
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5618979
+      moveTime: 0.5316162
+      reactionTime: 0.161312
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5046718
+      moveTime: 0.3888822
+      reactionTime: 0.2274787
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.3805561
+      moveTime: 0.3514999
+      reactionTime: 0.2504985
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5724996
+      moveTime: 0.3952293
+      reactionTime: 0.0145873
     trialPositions:
     - {x: -1, y: -1, z: 2}
     - {x: 1, y: 1, z: 2}
@@ -117,42 +133,50 @@ MonoBehaviour:
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.7336365
+      moveTime: 0.515459
+      reactionTime: 0.3252252
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.4248329
+      moveTime: 0.788012
+      reactionTime: 0.4012117
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5110153
+      moveTime: 0.4926432
+      reactionTime: 0.0713676
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5803806
+      moveTime: 0.9356968
+      reactionTime: 0.3411205
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5245344
+      moveTime: 0.8254364
+      reactionTime: 0.4203243
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.4337627
+      moveTime: 0.5257061
+      reactionTime: 0.0802419
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5102215
+      moveTime: 0.488504
+      reactionTime: 0.301364
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5110648
+      moveTime: 0.8118034
+      reactionTime: 0.3171012
     trialPositions:
     - {x: 1, y: -1, z: 2}
     - {x: -1, y: -1, z: 2}
@@ -164,42 +188,50 @@ MonoBehaviour:
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6231484
+      moveTime: 0.4374101
+      reactionTime: 0.2814244
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5113262
+      moveTime: 0.5364135
+      reactionTime: 0.4340432
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6310641
+      moveTime: 0.8545044
+      reactionTime: 0.015207
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 4.333143
+      moveTime: 0.5787044
+      reactionTime: 0.2062989
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.8355146
+      moveTime: 0.6410954
+      reactionTime: 0.2739386
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5038853
+      moveTime: 0.1710366
+      reactionTime: 0.0553138
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.7544253
+      moveTime: 0.5594347
+      reactionTime: 0.0155733
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5797721
+      moveTime: 0.4622632
+      reactionTime: 0.3556174
     trialPositions:
     - {x: 1, y: 1, z: 2}
     - {x: -1, y: 1, z: 2}
@@ -211,42 +243,50 @@ MonoBehaviour:
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6960953
+      moveTime: 0.530543
+      reactionTime: 0.3451631
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5467006
+      moveTime: 0.3660443
+      reactionTime: 0.2414071
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5149074
+      moveTime: 0.4916304
+      reactionTime: 0.3398314
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6875556
+      moveTime: 0.336907
+      reactionTime: 0.2401461
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5787359
+      moveTime: 0.6447926
+      reactionTime: 0.3537697
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5783231
+      moveTime: 0.3778389
+      reactionTime: 0.1007426
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 1.143104
+      moveTime: 0.9384169
+      reactionTime: 0.2828755
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.4469569
+      moveTime: 0.6187911
+      reactionTime: 0.4430711
     trialPositions:
     - {x: -1, y: -1, z: 2}
     - {x: 1, y: -1, z: 2}
@@ -258,42 +298,50 @@ MonoBehaviour:
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5018786
+      moveTime: 0.7608567
+      reactionTime: 0.3534457
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.3551484
+      moveTime: 0.5022229
+      reactionTime: 0.4045602
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6381031
+      moveTime: 0.4950496
+      reactionTime: 0.3516375
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5726131
+      moveTime: 0.4743717
+      reactionTime: 0.3691156
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.7636455
+      moveTime: 0.7239874
+      reactionTime: 0.3230743
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5691697
+      moveTime: 0.485606
+      reactionTime: 0.3842601
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5466294
+      moveTime: 0.4609014
+      reactionTime: 0.3404963
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.430796
+      moveTime: 0.5612319
+      reactionTime: 0.0176133
     trialPositions:
     - {x: 1, y: 1, z: 2}
     - {x: -1, y: 1, z: 2}
@@ -305,42 +353,50 @@ MonoBehaviour:
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 1.2270682
+      moveTime: 0.462456
+      reactionTime: 0.3466761
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6970531
+      moveTime: 0.4655879
+      reactionTime: 0.0155842
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.4992362
+      moveTime: 0.4252123
+      reactionTime: 0.3181161
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5576775
+      moveTime: 1.5095898
+      reactionTime: 0.4323724
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5324419
+      moveTime: 0.610098
+      reactionTime: 0.0145722
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.443775
+      moveTime: 0.4182619
+      reactionTime: 0.2558317
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.4816478
+      moveTime: 0.4447237
+      reactionTime: 0.3310797
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6897616
+      moveTime: 0.8341849
+      reactionTime: 0.3964067
     trialPositions:
     - {x: 1, y: -1, z: 2}
     - {x: 1, y: 1, z: 2}
@@ -352,42 +408,50 @@ MonoBehaviour:
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5454062
+      moveTime: 0.500181
+      reactionTime: 0.3793038
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.7587755
-    - xPosition: 1
-      yPosition: 1
-      zPosition: 2
-      interceptedResult: 1
-      responseTime: 0.5078226
-    - xPosition: -1
-      yPosition: -1
-      zPosition: 2
-      interceptedResult: 1
-      responseTime: 0.5455263
-    - xPosition: -1
-      yPosition: 1
-      zPosition: 2
-      interceptedResult: 1
-      responseTime: 2.101102
-    - xPosition: 1
-      yPosition: -1
-      zPosition: 2
-      interceptedResult: 1
-      responseTime: 1.2983634
+      moveTime: 0.4190205
+      reactionTime: 0.0144308
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6067954
+      moveTime: 0.758031
+      reactionTime: 0.3767322
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.4826384
+      moveTime: 0.6463386
+      reactionTime: 0.4099745
+    - xPosition: -1
+      yPosition: 1
+      zPosition: 2
+      interceptedResult: 1
+      moveTime: 0.510746
+      reactionTime: 0.0163032
+    - xPosition: 1
+      yPosition: -1
+      zPosition: 2
+      interceptedResult: 1
+      moveTime: 0.4757961
+      reactionTime: 0.0545062
+    - xPosition: 1
+      yPosition: 1
+      zPosition: 2
+      interceptedResult: 1
+      moveTime: 0.4683395
+      reactionTime: 0.3388449
+    - xPosition: -1
+      yPosition: -1
+      zPosition: 2
+      interceptedResult: 1
+      moveTime: 1.0366725
+      reactionTime: 0.3186297
     trialPositions:
     - {x: -1, y: 1, z: 2}
     - {x: 1, y: -1, z: 2}
@@ -399,42 +463,50 @@ MonoBehaviour:
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6362351
+      moveTime: 0.461508
+      reactionTime: 0.353648
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6812621
-    - xPosition: -1
-      yPosition: -1
-      zPosition: 2
-      interceptedResult: 1
-      responseTime: 0.6687092
-    - xPosition: 1
-      yPosition: 1
-      zPosition: 2
-      interceptedResult: 1
-      responseTime: 0.4839615
-    - xPosition: 1
-      yPosition: -1
-      zPosition: 2
-      interceptedResult: 1
-      responseTime: 0.6502143
-    - xPosition: -1
-      yPosition: 1
-      zPosition: 2
-      interceptedResult: 1
-      responseTime: 0.5304776
+      moveTime: 0.4875752
+      reactionTime: 0.2998792
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6564228
+      moveTime: 3.5174296
+      reactionTime: 0.0152801
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.4763666
+      moveTime: 0.6659649
+      reactionTime: 0.0155367
+    - xPosition: 1
+      yPosition: -1
+      zPosition: 2
+      interceptedResult: 1
+      moveTime: 0.9410395
+      reactionTime: 0.0155976
+    - xPosition: -1
+      yPosition: 1
+      zPosition: 2
+      interceptedResult: 1
+      moveTime: 0.563662
+      reactionTime: 0.1172821
+    - xPosition: -1
+      yPosition: -1
+      zPosition: 2
+      interceptedResult: 1
+      moveTime: 1.2213343
+      reactionTime: 0.0632402
+    - xPosition: 1
+      yPosition: 1
+      zPosition: 2
+      interceptedResult: 1
+      moveTime: 0.6867145
+      reactionTime: 0.0561694
     trialPositions:
     - {x: 1, y: -1, z: 2}
     - {x: -1, y: 1, z: 2}
@@ -446,42 +518,50 @@ MonoBehaviour:
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.9796638
+      moveTime: 0.838358
+      reactionTime: 0.1707116
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5944327
+      moveTime: 0.5171191
+      reactionTime: 0.3930112
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5195638
+      moveTime: 0.8579995
+      reactionTime: 0.0167906
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.7646522
+      moveTime: 0.6595762
+      reactionTime: 0.416825
     - xPosition: 1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.6911226
+      moveTime: 0.9266962
+      reactionTime: 0.291303
     - xPosition: 1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5738341
+      moveTime: 0.4518477
+      reactionTime: 0.0161927
     - xPosition: -1
       yPosition: -1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5052375
+      moveTime: 0.734317
+      reactionTime: 0.363489
     - xPosition: -1
       yPosition: 1
       zPosition: 2
       interceptedResult: 1
-      responseTime: 0.5283874
+      moveTime: 0.7910219
+      reactionTime: 0.0148027
     trialPositions:
     - {x: 1, y: -1, z: 2}
     - {x: 1, y: 1, z: 2}

@@ -985,7 +985,8 @@ MonoBehaviour:
     yPosition: 0
     zPosition: 0
     interceptedResult: 0
-    responseTime: 0
+    moveTime: 0
+    reactionTime: 0
 --- !u!114 &1141725310
 MonoBehaviour:
   m_ObjectHideFlags: 0
