@@ -15,16 +15,16 @@ public class TargetScript : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(player.transform.position, transform.position);
-        if (distance < 0.05f)
+        if (distance < 0.08f)
         {
             EventManager.EndTrial(1);
             Destroy(gameObject);
         }
-        else if (distance > 2.0f)
+        /*else if (distance > 2.0f)
         {
             EventManager.EndTrial(0);
             Destroy(gameObject);
-        }
+        }*/
     }
     
     /*

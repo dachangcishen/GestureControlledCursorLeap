@@ -33,14 +33,18 @@ public class Block
     public int numberOfTrialsInBlock;
     [SerializeField]
     public List<Trial> trials;
-    public List<Vector3> trialPositions = new() { new Vector3(0, 0, 2),  new Vector3(1.0f, 1.0f, 2), new Vector3(0, 0, 2),new Vector3(-1.0f, -1.0f, 2), new Vector3(0, 0, 2), new Vector3(-1.0f, 1.0f, 2), new Vector3(0, 0, 2), new Vector3(1.0f, -1.0f, 2) };
+    public List<Vector3> trialPositions = new() {new Vector3(1.0f, 1.0f, 2), new Vector3(-1.0f, -1.0f, 2), new Vector3(-1.0f, 1.0f, 2), new Vector3(1.0f, -1.0f, 2) };
     public Block(int numberOfTrials)
     {
         trials = new();
         numberOfTrialsInBlock = numberOfTrials;
         //shuffle the positions
-        //trialPositions = trialPositions.OrderBy(_ => Random.value).ToList();
-        for (int i = 0; i < numberOfTrialsInBlock; i++)
+        trialPositions = trialPositions.OrderBy(_ => Random.value).ToList();
+        for (int i = 0; i < numberOfTrialsInBlock / 2; i++)
+        {
+            trials.Add(new Trial(trialPositions[i].x, trialPositions[i].y, trialPositions[i].z));   
+        }
+        for (int i = 0; i < numberOfTrialsInBlock / 2; i++)
         {
             trials.Add(new Trial(trialPositions[i].x, trialPositions[i].y, trialPositions[i].z));   
         }
@@ -55,7 +59,7 @@ public class Trial
     public float yPosition;
     public float zPosition;
     public int interceptedResult = -999;
-    public float responseTime = -999.0f;
+    public float moveTime = -999.0f;
 
     public Trial(float xPositionForTrial, float yPositionForTrial, float zPositionForTrial)
     {
@@ -68,5 +72,5 @@ public class Trial
 public class Response
 {
     public int interceptedResult = -999;
-    public float responseTime = -999.0f;
+    public float moveTime = -999.0f;
 }

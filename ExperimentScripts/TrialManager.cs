@@ -17,6 +17,7 @@ public class TrialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (trialStarted)
         {
             if (Input.GetKeyDown(KeyCode.T))
@@ -30,6 +31,7 @@ public class TrialManager : MonoBehaviour
                 trialStarted = false;
             }
         }
+        */
     }
 
     void OnTrialEndFunction(int interceptedResultResponse)
