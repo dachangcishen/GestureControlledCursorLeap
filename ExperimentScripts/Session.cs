@@ -33,7 +33,7 @@ public class Block
     public int numberOfTrialsInBlock;
     [SerializeField]
     public List<Trial> trials;
-    public List<Vector3> trialPositions = new() {new Vector3(1.0f, 1.0f, 2), new Vector3(-1.0f, -1.0f, 2), new Vector3(-1.0f, 1.0f, 2), new Vector3(1.0f, -1.0f, 2) };
+    public List<Vector3> trialPositions = new() {new Vector3(1.0f, 1.0f, 2), new Vector3(-1.0f, 1.0f, 2), new Vector3(-1.0f, -1.0f, 2), new Vector3(1.0f, -1.0f, 2)};
     public Block(int numberOfTrials)
     {
         trials = new();

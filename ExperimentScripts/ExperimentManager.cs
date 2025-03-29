@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
+using System.Collections.Generic;
 public class ExperimentManager : MonoBehaviour
 {
     public string ParticipantID;
@@ -16,6 +17,7 @@ public class ExperimentManager : MonoBehaviour
     public TMP_Text RightTop;
     public TMP_Text LeftBottom;
     public TMP_Text RightBottom;
+    public TMP_Text Middle;
     public bool waitingForResponse = false;
     public bool probeEnabled = false;
     public bool probeAdopted = false;
@@ -26,6 +28,7 @@ public class ExperimentManager : MonoBehaviour
     Vector3 startPosition;
     private GameObject player;
     bool waitingForReaction = false;
+    List<Color> colors = new List<Color>() { Color.green, Color.blue, new Color(0.5f, 0f, 0.5f, 1f), Color.yellow };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -71,6 +74,7 @@ public class ExperimentManager : MonoBehaviour
         RightTop.text = "";
         LeftBottom.text = "";
         RightBottom.text = "";
+        Middle.text = "";
         string filePath = Application.dataPath + "/" + ParticipantID + "_" + DateTime.Now.ToString("yyyyMMdd") + ".txt";
         for (int currentBlock = 0; currentBlock < session.numberOfBlocksPerSession; currentBlock++)
         {
@@ -100,11 +104,15 @@ public class ExperimentManager : MonoBehaviour
                 }
             }
             yield return new WaitForSeconds(2.0f);
+            Middle.text = "Plan";
 
             LeftTop.text = "";
             RightTop.text = "";
             LeftBottom.text = "";
             RightBottom.text = "";
+
+            yield return new WaitForSeconds(1.0f);
+            Middle.text = "";
             probeAdopted = false;
             
             if (probeEnabled) {
@@ -115,8 +123,7 @@ public class ExperimentManager : MonoBehaviour
                 }
             }
             if (probeAdopted){                
-                int randomInt = rnd.Next(4);
-                int currentTrial = randomInt * 2 + 1;
+                int currentTrial = rnd.Next(4);
                 thisTrial = thisBlock.trials[currentTrial];
                 //yield return new WaitForSeconds(1.0f);
                 startTime = DateTime.Now;
@@ -137,7 +144,32 @@ public class ExperimentManager : MonoBehaviour
                 }
                 continue;
             }
-            for (int currentTrial = 0; currentTrial < thisBlock.numberOfTrialsInBlock; currentTrial++)
+
+            for (int i = 1; i <= 4; i++)
+            {
+                if (thisBlock.trialPositions[i - 1].Equals(new Vector3(-1.0f, 1.0f, 2)))
+                {
+                    LeftTop.text = i.ToString();
+                    LeftTop.color = colors[i - 1];
+                }
+                else if (thisBlock.trialPositions[i - 1].Equals(new Vector3(1.0f, 1.0f, 2)))
+                {
+                    RightTop.text = i.ToString();
+                    RightTop.color = colors[i - 1];
+                }
+                else if (thisBlock.trialPositions[i - 1].Equals(new Vector3(-1.0f, -1.0f, 2)))
+                {
+                    LeftBottom.text = i.ToString();
+                    LeftBottom.color = colors[i - 1];
+                }
+                else if (thisBlock.trialPositions[i - 1].Equals(new Vector3(1.0f, -1.0f, 2)))
+                {
+                    RightBottom.text = i.ToString();
+                    RightBottom.color = colors[i - 1];
+                }
+            }
+
+            for (int currentTrial = 0; currentTrial < thisBlock.numberOfTrialsInBlock / 2; currentTrial++)
             {
                 thisTrial = thisBlock.trials[currentTrial];
                 
@@ -161,11 +193,35 @@ public class ExperimentManager : MonoBehaviour
                 session.SaveScriptable();
                 Debug.Log($"Finished trial number {currentTrial} with result {thisTrial.interceptedResult}");
                 thisTrial.moveTime = (float)(DateTime.Now - startTime).TotalSeconds;
+
+                if (thisBlock.trialPositions[currentTrial].Equals(new Vector3(-1.0f, 1.0f, 2)))
+                {
+                    LeftTop.text = "";
+                }
+                else if (thisBlock.trialPositions[currentTrial].Equals(new Vector3(1.0f, 1.0f, 2)))
+                {
+                    RightTop.text = "";
+                }
+                else if (thisBlock.trialPositions[currentTrial].Equals(new Vector3(-1.0f, -1.0f, 2)))
+                {
+                    LeftBottom.text = "";
+                }
+                else if (thisBlock.trialPositions[currentTrial].Equals(new Vector3(1.0f, -1.0f, 2)))
+                {
+                    RightBottom.text = "";
+                }
+
                 using (StreamWriter file = new StreamWriter(filePath, true))
                 {
                     file.WriteLine($"{currentBlock} {currentTrial} {probeEnabled} {probeAdopted} {thisTrial.interceptedResult} {thisTrial.reactionTime} {thisTrial.moveTime} {thisTrial.xPosition} {thisTrial.yPosition} {thisTrial.zPosition}");
                 }
             }
+
+            
+            LeftTop.color = Color.white;
+            RightTop.color = Color.white;
+            LeftBottom.color = Color.white;
+            RightBottom.color = Color.white;
         }
     }
 
