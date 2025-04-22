@@ -27,7 +27,8 @@ public class ExperimentManager : MonoBehaviour
     DateTime startTime;
     Vector3 startPosition;
     private GameObject player;
-    bool waitingForReaction = false;
+    public bool waitingForReaction = false;
+    public bool reachedWrongPosition = false;
     List<Color> colors = new List<Color>() { Color.green, Color.blue, new Color(0.5f, 0f, 0.5f, 1f), Color.yellow };
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,10 +53,21 @@ public class ExperimentManager : MonoBehaviour
     {
         if(waitingForReaction)
         {
-            if(Vector3.Distance(player.transform.position, startPosition) > 0.1f)
+            // Check if the player has moved significantly from the start position
+            // If so, record the reaction time and stop waiting for reaction
+            if(Mathf.Abs(player.transform.position.x - startPosition.x) + Mathf.Abs(player.transform.position.y - startPosition.y) > 0.15f)
             {
                 thisTrial.reactionTime = (float)(DateTime.Now - startTime).TotalSeconds;
                 waitingForReaction = false;
+            }
+        }
+        if(!waitingForReaction && !reachedWrongPosition && target != null){
+            if(Mathf.Abs(player.transform.position.x) + Mathf.Abs(player.transform.position.y) > 1.85f)
+            {
+                if(Mathf.Abs(player.transform.position.x - target.transform.position.x) + Mathf.Abs(player.transform.position.y - target.transform.position.y) > 0.15f)
+                {
+                    reachedWrongPosition = true;
+                }
             }
         }
     }
@@ -131,9 +143,12 @@ public class ExperimentManager : MonoBehaviour
                 startPosition = player.transform.position;
                 waitingForReaction = true;
                 waitingForResponse = true;
+                reachedWrongPosition = false;
                 target = GameObject.FindWithTag("Respawn");
                 target.GetComponent<Renderer>().material.color = Color.red;
                 yield return new WaitWhile(() => waitingForResponse);
+                if(reachedWrongPosition) thisTrial.interceptedResult = 0;
+
                 session.SaveScriptable();                
                 Debug.Log($"Finished trial number {currentTrial} with result {thisTrial.interceptedResult}");
                 thisTrial.moveTime = (float)(DateTime.Now - startTime).TotalSeconds;
@@ -143,30 +158,6 @@ public class ExperimentManager : MonoBehaviour
                     file.WriteLine($"{currentBlock} {currentTrial} {probeEnabled} {probeAdopted} {thisTrial.interceptedResult} {thisTrial.reactionTime} {thisTrial.moveTime} {thisTrial.xPosition} {thisTrial.yPosition} {thisTrial.zPosition}");
                 }
                 continue;
-            }
-
-            for (int i = 1; i <= 4; i++)
-            {
-                if (thisBlock.trialPositions[i - 1].Equals(new Vector3(-1.0f, 1.0f, 2)))
-                {
-                    LeftTop.text = i.ToString();
-                    LeftTop.color = colors[i - 1];
-                }
-                else if (thisBlock.trialPositions[i - 1].Equals(new Vector3(1.0f, 1.0f, 2)))
-                {
-                    RightTop.text = i.ToString();
-                    RightTop.color = colors[i - 1];
-                }
-                else if (thisBlock.trialPositions[i - 1].Equals(new Vector3(-1.0f, -1.0f, 2)))
-                {
-                    LeftBottom.text = i.ToString();
-                    LeftBottom.color = colors[i - 1];
-                }
-                else if (thisBlock.trialPositions[i - 1].Equals(new Vector3(1.0f, -1.0f, 2)))
-                {
-                    RightBottom.text = i.ToString();
-                    RightBottom.color = colors[i - 1];
-                }
             }
 
             for (int currentTrial = 0; currentTrial < thisBlock.numberOfTrialsInBlock / 2; currentTrial++)
@@ -186,30 +177,18 @@ public class ExperimentManager : MonoBehaviour
                 startTime = DateTime.Now;
                 EventManager.BeginTrial(thisTrial);
                 startPosition = player.transform.position;
+                if (currentTrial > 0) startPosition = thisBlock.trialPositions[currentTrial - 1];
                 waitingForReaction = true;
                 waitingForResponse = true;
+                reachedWrongPosition = false;
+                target = GameObject.FindWithTag("Respawn");
                 yield return new WaitWhile(() => waitingForResponse);
+                if(reachedWrongPosition) thisTrial.interceptedResult = 0;
+                
                 // Save results/session to text file
                 session.SaveScriptable();
                 Debug.Log($"Finished trial number {currentTrial} with result {thisTrial.interceptedResult}");
                 thisTrial.moveTime = (float)(DateTime.Now - startTime).TotalSeconds;
-
-                if (thisBlock.trialPositions[currentTrial].Equals(new Vector3(-1.0f, 1.0f, 2)))
-                {
-                    LeftTop.text = "";
-                }
-                else if (thisBlock.trialPositions[currentTrial].Equals(new Vector3(1.0f, 1.0f, 2)))
-                {
-                    RightTop.text = "";
-                }
-                else if (thisBlock.trialPositions[currentTrial].Equals(new Vector3(-1.0f, -1.0f, 2)))
-                {
-                    LeftBottom.text = "";
-                }
-                else if (thisBlock.trialPositions[currentTrial].Equals(new Vector3(1.0f, -1.0f, 2)))
-                {
-                    RightBottom.text = "";
-                }
 
                 using (StreamWriter file = new StreamWriter(filePath, true))
                 {

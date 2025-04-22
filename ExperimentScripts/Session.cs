@@ -36,10 +36,16 @@ public class Block
     public List<Vector3> trialPositions = new() {new Vector3(1.0f, 1.0f, 2), new Vector3(-1.0f, 1.0f, 2), new Vector3(-1.0f, -1.0f, 2), new Vector3(1.0f, -1.0f, 2)};
     public Block(int numberOfTrials)
     {
+        System.Random rnd = new System.Random();
+        int randomInt = rnd.Next(2);
+        if(randomInt == 0)
+        {
+            trialPositions = new List<Vector3> { new Vector3(-1.0f, 1.0f, 2), new Vector3(1.0f, -1.0f, 2), new Vector3(1.0f, 1.0f, 2), new Vector3(-1.0f, -1.0f, 2) };
+        }
         trials = new();
         numberOfTrialsInBlock = numberOfTrials;
         //shuffle the positions
-        trialPositions = trialPositions.OrderBy(_ => Random.value).ToList();
+        //trialPositions = trialPositions.OrderBy(_ => Random.value).ToList();
         for (int i = 0; i < numberOfTrialsInBlock / 2; i++)
         {
             trials.Add(new Trial(trialPositions[i].x, trialPositions[i].y, trialPositions[i].z));   

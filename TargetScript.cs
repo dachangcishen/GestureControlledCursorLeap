@@ -4,7 +4,6 @@ public class TargetScript : MonoBehaviour
 {
     private Rigidbody rb;
     private GameObject player;
-    private double distance;
     void Start()
     {
         rb = GetComponent<Rigidbody>(); 
@@ -14,8 +13,7 @@ public class TargetScript : MonoBehaviour
     
     void Update()
     {
-        distance = Vector3.Distance(player.transform.position, transform.position);
-        if (distance < 0.1f)
+        if (Mathf.Abs(player.transform.position.x - transform.position.x) + Mathf.Abs(player.transform.position.y - transform.position.y) < 0.15f)
         {
             EventManager.EndTrial(1);
             Destroy(gameObject);
