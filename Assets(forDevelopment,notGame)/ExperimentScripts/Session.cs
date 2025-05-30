@@ -29,23 +29,36 @@ public class Session
 [System.Serializable]
 public class Block
 {
-    
+    public static System.Random rnd;
     public int numberOfTrialsInBlock;
     [SerializeField]
     public List<Trial> trials;
-    public List<Vector3> trialPositions = new() {new Vector3(1.0f, 1.0f, 2), new Vector3(-1.0f, 1.0f, 2), new Vector3(-1.0f, -1.0f, 2), new Vector3(1.0f, -1.0f, 2)};
+    public List<Vector3> trialPositions;
     public Block(int numberOfTrials)
     {
-        System.Random rnd = new System.Random();
-        int randomInt = rnd.Next(2);
+        rnd = new System.Random();
+        int randomInt = rnd.Next(0, 4); 
         if(randomInt == 0)
         {
-            trialPositions = new List<Vector3> { new Vector3(-1.0f, 1.0f, 2), new Vector3(1.0f, -1.0f, 2), new Vector3(1.0f, 1.0f, 2), new Vector3(-1.0f, -1.0f, 2) };
+            trialPositions = new List<Vector3> { new Vector3(1.0f, 1.0f, 2), new Vector3(-1.0f, -1.0f, 2), new Vector3(-1.0f, 1.0f, 2), new Vector3(1.0f, -1.0f, 2) };
+        }
+        else if(randomInt == 1)
+        {
+            trialPositions = new List<Vector3> { new Vector3(-1.0f, 1.0f, 2), new Vector3(1.0f, 1.0f, 2), new Vector3(1.0f, -1.0f, 2), new Vector3(-1.0f, -1.0f, 2) };
+        }
+        else if(randomInt == 2)
+        {
+            trialPositions = new List<Vector3> { new Vector3(-1.0f, -1.0f, 2), new Vector3(1.0f, -1.0f, 2), new Vector3(1.0f, 1.0f, 2), new Vector3(-1.0f, 1.0f, 2) };
+        }
+        else if(randomInt == 3)
+        {
+            trialPositions = new List<Vector3> { new Vector3(1.0f, -1.0f, 2), new Vector3(-1.0f, 1.0f, 2), new Vector3(-1.0f, -1.0f, 2), new Vector3(1.0f, 1.0f, 2)  };
         }
         trials = new();
         numberOfTrialsInBlock = numberOfTrials;
-        //shuffle the positions
-        //trialPositions = trialPositions.OrderBy(_ => Random.value).ToList();
+        /*//shuffle the positions
+        Random.InitState(System.DateTime.Now.Millisecond);
+        trialPositions = trialPositions.OrderBy(_ => Random.value).ToList();*/
         for (int i = 0; i < numberOfTrialsInBlock / 2; i++)
         {
             trials.Add(new Trial(trialPositions[i].x, trialPositions[i].y, trialPositions[i].z));   

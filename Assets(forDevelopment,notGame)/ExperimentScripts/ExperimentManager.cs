@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public class ExperimentManager : MonoBehaviour
 {
     public string ParticipantID;
-    public int numberOfBlocks = 10;
+    public int numberOfBlocks = 20;
     public int numberOfTrials = 8;
 
     public Session thisSession;
@@ -40,12 +40,14 @@ public class ExperimentManager : MonoBehaviour
     float minXPlusY;
     float maxXMinusY;
     float minXMinusY;
+    public static System.Random rnd = new System.Random(System.DateTime.Now.Millisecond);
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if(File.Exists(Path.Combine(Application.dataPath,"SubjectName.txt")))
+        rnd = new System.Random(System.DateTime.Now.Millisecond);
+        if (File.Exists(Path.Combine(Application.dataPath, "SubjectName.txt")))
         {
-            string[] lines = File.ReadAllLines(Path.Combine(Application.dataPath,"SubjectName.txt"));
+            string[] lines = File.ReadAllLines(Path.Combine(Application.dataPath, "SubjectName.txt"));
             ParticipantID = lines[0];
         }
         thisSession = new Session(ParticipantID, numberOfTrials, numberOfBlocks);
@@ -106,7 +108,7 @@ public class ExperimentManager : MonoBehaviour
     IEnumerator ExperimentScriptableCoroutine(SessionScriptable session)
     {
         Debug.Log($"Coroutine Started with Participant ID {session.ParticipantID}");
-        System.Random rnd = new System.Random();
+        
         LeftTop.text = "";
         RightTop.text = "";
         LeftBottom.text = "";
@@ -122,7 +124,12 @@ public class ExperimentManager : MonoBehaviour
                 file.WriteLine("Block,Trial,ProbeEnabled,ProbeAdopted,InterceptedResult,ReactionTime,MoveTime,XPosition,YPosition,ZPosition,StartX,StartY,StartZ,ProgramTime,MaxX,MinX,MaxY,MinY,MaxXPlusY,MinXPlusY,MaxXMinusY,MinXMinusY");
             }
         }
-
+        probeEnabled = false;
+        int randomInt = rnd.Next(2);
+        if (randomInt == 0)
+        {
+            probeEnabled = true;
+        }
         for (int currentBlock = 0; currentBlock < session.numberOfBlocksPerSession; currentBlock++)
         {
             yield return new WaitForSeconds(1.0f);
@@ -161,15 +168,17 @@ public class ExperimentManager : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             Middle.text = "";
             probeAdopted = false;
-            
-            if (probeEnabled) {
-                int randomInt = rnd.Next(5);
-                if (randomInt == 0)
+
+            if (probeEnabled)
+            {
+                int randomInt2 = rnd.Next(5);
+                if (randomInt2 == 0)
                 {
                     probeAdopted = true;
                 }
             }
-            if (probeAdopted){                
+            if (probeAdopted)
+            {
                 int currentTrial = rnd.Next(4);
                 thisTrial = thisBlock.trials[currentTrial];
                 startTime = DateTime.Now;
@@ -190,9 +199,9 @@ public class ExperimentManager : MonoBehaviour
                 target = GameObject.FindWithTag("Respawn");
                 target.GetComponent<Renderer>().material.color = Color.red;
                 yield return new WaitWhile(() => waitingForResponse);
-                if(reachedWrongPosition) thisTrial.interceptedResult = 0;
+                if (reachedWrongPosition) thisTrial.interceptedResult = 0;
                 recordingRange = false;
-                session.SaveScriptable();                
+                session.SaveScriptable();
                 Debug.Log($"Finished trial number {currentTrial} with result {thisTrial.interceptedResult}");
                 thisTrial.moveTime = (float)(DateTime.Now - startTime).TotalSeconds;
                 programTime = (float)(DateTime.Now - programStartTime).TotalSeconds;
@@ -206,7 +215,7 @@ public class ExperimentManager : MonoBehaviour
             for (int currentTrial = 0; currentTrial < thisBlock.numberOfTrialsInBlock / 2; currentTrial++)
             {
                 thisTrial = thisBlock.trials[currentTrial];
-                
+
                 Debug.Log($"Starting trial number {currentTrial}");
                 startTime = DateTime.Now;
                 EventManager.BeginTrial(thisTrial);
@@ -226,7 +235,7 @@ public class ExperimentManager : MonoBehaviour
                 minXMinusY = 20.0f;
                 target = GameObject.FindWithTag("Respawn");
                 yield return new WaitWhile(() => waitingForResponse);
-                if(reachedWrongPosition) thisTrial.interceptedResult = 0;
+                if (reachedWrongPosition) thisTrial.interceptedResult = 0;
                 recordingRange = false;
                 session.SaveScriptable();
                 Debug.Log($"Finished trial number {currentTrial} with result {thisTrial.interceptedResult}");

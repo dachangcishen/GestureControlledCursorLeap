@@ -1431,7 +1431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParticipantID: Yunhao
-  numberOfBlocks: 10
+  numberOfBlocks: 20
   numberOfTrials: 8
   thisSession:
     ParticipantID: 
