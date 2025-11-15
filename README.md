@@ -1,6 +1,6 @@
 # Gesture Controlled Cursor Leap
 
-Using the markerless hand racking device Leap Motion Controller, collects 15D/19D gesture data and maps it to 2D plane coordinates for sequential movement research.
+Using the markerless hand tracking device Leap Motion Controller, collects 15D gesture and maps it to 2D plane coordinates for sequential movement research.
 
 Mosier, K. M., Scheidt, R. A., Acosta, S., & Mussa-Ivaldi, F. A. (2005). Remapping hand movements in a novel geometrical environment. Journal of neurophysiology, 94(6), 4362–4372. https://doi.org/10.1152/jn.00380.2005
 
